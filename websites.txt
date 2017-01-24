@@ -1,0 +1,6 @@
+httpbin.org/get
+https://www.facebook.com
+https://www.google.com
+https://www.yelp.com
+https://news.ycombinator.com
+https://www.reddit.com
