@@ -11,15 +11,21 @@ defmodule GenStageExample.ProducerConsumer do
     end
 
     def handle_events(urls, _from, state) do
-        response_texts = urls
-        |> Enum.map(fn(url) -> 
-            get_response = url
+        IO.puts "ProducerConsumer#handle_events"
+        IO.puts state
+
+        response_texts =
+        urls
+        |> Enum.map(fn(url) ->
+            trimmed_url = String.trim(url, "\n")
+
+            get_response = trimmed_url
             |> HTTPotion.get
             |> HTTPotion.Response.success?
 
-            "#{url} -> #{get_response}"
+            "#{trimmed_url} -> #{get_response}"
         end)
-        
+
         {:noreply, response_texts, state}
     end
 end

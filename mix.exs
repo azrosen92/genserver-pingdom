@@ -14,7 +14,7 @@ defmodule GenstageExample.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger],
+    [applications: [:logger, :httpotion],
      mod: {GenstageExample, []}]
   end
 
@@ -30,6 +30,7 @@ defmodule GenstageExample.Mixfile do
   defp deps do
     [
       {:gen_stage, "~> 0.7"},
+      {:httpotion, "~> 3.0.2"},
     ]
   end
 end

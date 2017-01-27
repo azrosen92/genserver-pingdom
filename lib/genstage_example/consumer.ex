@@ -1,5 +1,5 @@
 defmodule GenStageExample.Consumer do
-    # alias Experimental.GenStage    
+    # alias Experimental.GenStage
     use GenStage
 
     def start_link do
@@ -12,7 +12,10 @@ defmodule GenStageExample.Consumer do
 
     def handle_events(events, _from, state) do
         events
-        |> Enum.map(IO.puts)
+        |> Enum.map(fn(url_status) ->
+            url_status
+            |> IO.puts
+        end)
 
         {:noreply, [], state}
     end
